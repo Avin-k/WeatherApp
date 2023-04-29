@@ -10,7 +10,7 @@ const error = document.querySelector('.not-found');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 
-search.addEventListner('click', () => {
+search.addEventListener('click', () => {
     const key = `79235a508f9fb0b5811d732d6a0c103a`;
     const city = document.querySelector('.search-box input').value;
 
@@ -21,13 +21,15 @@ search.addEventListner('click', () => {
         .then((response) => response.json())
         .then((json) => {
 
-            console.log(json)
+            // console.log(json) to check JSON File
 
             if (json.cod === '404') {
-                container.style.height = '350px';
+                container.style.height = '400px';
+                container.style.overflow = 'visible';
                 weatherBox.style.display = 'none';
                 weatherDetails.style.display = 'none';
                 error.style.display = 'block';
+                error.classList.add('fade-in')
                 return;
             }
             error.style.display = 'none';
@@ -40,19 +42,19 @@ search.addEventListner('click', () => {
 
             switch (json.weather[0].main) {
                 case 'Clear':
-                    img.src = '/Weather-App/img/clear.png';
+                    img.src = '/newJava/weatherApp/img/clear.png';
                     break;
                 case 'Clouds':
-                    img.src = '/Weather-App/img/cloud.png';
+                    img.src = '/newJava/weatherApp/img/cloud.png';
                     break;
                 case 'Haze':
-                    img.src = '/Weather-App/img/mist.png';
+                    img.src = '/newJava/weatherApp/img/mist.png';
                     break;
                 case 'Rain':
-                    img.src = '/Weather-App/img/rain.png';
+                    img.src = '/newJava/weatherApp/img/rain.png';
                     break;
                 case 'Snow':
-                    img.src = '/Weather-App/img/snow.png';
+                    img.src = '/newJava/weatherApp/img/snow.png';
                     break;
 
                 default:
@@ -65,9 +67,13 @@ search.addEventListner('click', () => {
             humidity.innerHTML = `${json.main.humidity}%`;
             windSpeed.innerHTML = `${json.wind.speed} Km/h`;
 
-            container.style.height = '605px';
+            container.style.height = '505px';
+            container.style.overflow ='visible';
             weatherBox.style.display = 'block';
             weatherDetails.style.display = 'flex';
+            weatherBox.classList.add('fade-in');
+            weatherDetails.classList.add('fade-in');
+
         }
         )
 

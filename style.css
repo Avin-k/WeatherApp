@@ -22,7 +22,7 @@ body {
     height: 105px;
     background: #ffffff;
     padding: 28px 32px;
-    /* overflow: hidden; */
+    overflow: hidden;
     border-radius: 15px;
     font-family: 'Jost', sans-serif;
     transition: .6s ease-out;
@@ -43,7 +43,7 @@ body {
     width: 80%;
     font-size: 18px;
     font-weight: 500px;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     text-align: center;
 }
 
@@ -79,7 +79,7 @@ body {
 
 .weather-box {
     text-align: center;
-
+    display: none;
 }
 
 .weather-box img {
@@ -112,14 +112,14 @@ body {
 
 .weather-details {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: space-between;
     margin-top: 30px;
 
 }
 
 .weather-details .humidity,
-.weather-details .wind {
+.weather-details .wind-speed {
     display: flex;
     align-items: center;
     width: 50%;
@@ -133,7 +133,7 @@ body {
 
 }
 
-.weather-details .wind {
+.weather-details .wind-speed {
     padding-right: 20px;
     justify-content: flex-end;
 }
@@ -162,9 +162,7 @@ body {
     width: 100%;
     text-align: center;
     margin-top: 50px;
-    scale: 0;
-    opacity: 0;
-    display: none;
+    display: block;
 
 }
 
